@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  //- h1= title
+  div.container
+    div 
+      span Map will be added to
+      span.tem-title= themes[0].name
+      span theme
+      //- ul
+      //-   each theme, index in themes 
+      //-     li
+      //-       span= theme.name
+      //-       - if(index==0)
+      //-         span <--Main theme
+    .validation-notification
+    .map-page-configuration
+      form#map-config
+        //- div
+        //-   label(for="lat") lat
+        //-   input#lat(type="text", name="lat")
+        //- div
+        //-   label(for="lng") lng
+        //-   input#lng(type="text" name="lng")
+        div.form-group
+          label(for="apiKay") Google Map api key
+          input.form-control(type="text" name="apiKey" value="AIzaSyCULxINN0XDBFMuDxxk0w92xIDugHn6CRg")
+        div.form-group
+          label(for="mapStyle") Input your map custme styles
+          textarea#map-style.form-control(name="mapStyleCustom", cols="30", rows="10")
+        div.form-check
+          p Or choose from list
+          ul.list-group
+            each mapStyle in mapStyles
+              li.list-group-item
+                label.form-check-label(for=mapStyle)
+                  input.form-check-input(type="radio", name="mapStyle" class="map-style-radio" id=mapStyle value= mapStyle)
+                  div= mapStyle
+                  figure.figure.style-example
+                    img.figure-img.img-fluid.rounded(src="/images/" + mapStyle + ".png", alt= mapStyle)

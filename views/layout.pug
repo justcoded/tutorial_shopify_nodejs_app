@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://cdn.shopify.com/s/assets/external/app.js')
+    script.
+      ShopifyConfig = {
+        apiKey: '#{appKey}',
+        shopOrigin: 'https://#{shop}'
+      };
+      ShopifyApp.init(ShopifyConfig);
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous')
+    script(src='/javascripts/app.js')
+  body
+    block content
